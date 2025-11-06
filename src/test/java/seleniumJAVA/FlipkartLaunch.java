@@ -54,6 +54,7 @@ public class FlipkartLaunch {
 		File scrnfile1 = srnshot1.getScreenshotAs(OutputType.FILE);
 		File destFile1 = new File ("C:\\Users\\HP\\eclipse-workspace\\Automation_Screenshots\\img02.png");
 		FileUtils.copyFile(scrnfile1, destFile1);
+		//just for test
 		
 	
 //		driver.close();
