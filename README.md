@@ -1,123 +1,186 @@
-# SELENIUM-Programs
+# Selenium Programs – Java + Selenium Automation Practice
 
-A small Selenium + Java automation project (Eclipse workspace) that demonstrates launching browsers, navigating to Amazon, scrolling, taking screenshots, interacting with dropdowns, and basic test examples.
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-17-blue" />
+  <img src="https://img.shields.io/badge/Selenium-WebDriver-brightgreen" />
+  <img src="https://img.shields.io/badge/Maven-Build%20Tool-orange" />
+  <img src="https://img.shields.io/badge/Status-Active-success" />
+  <img src="https://img.shields.io/badge/Category-Automation%20Testing-purple" />
+</p>
 
----
+<p align="center"><b>A complete hands-on Selenium automation practice repository created with jobs, interviews, and real-world automation skills in mind.</b></p>
 
-## Table of Contents
+A collection of **hands-on Selenium WebDriver automation scripts** written in **Java**, showcasing real-time web automation scenarios, interview practice problems, and practical examples recruiters love to see.
 
-- About
-- Features
-- Prerequisites
-- Installation & Setup
-- Run from Eclipse
-- Run from Command Line (Maven)
-- Project Structure
-- Important Notes & Troubleshooting
-- Suggested Next Steps
-- License
+This repository demonstrates your ability to work with **core Selenium commands**, **browser automation**, **locators**, **waits**, **alerts**, **dropdowns**, **frames**, **window handling**, and more. It also shows a clean project structure ideal for learning and job preparation.
 
 ---
 
-## About
+## 📌 **Project Overview**
 
-This repository contains simple Selenium automation examples written in Java. It uses WebDriverManager to handle browser driver binaries and demonstrates core WebDriver actions such as navigating to a website, scrolling, taking screenshots, refreshing, and selecting items from a dropdown.
+This project contains Java-based Selenium automation scripts for practicing and mastering:
 
-The example shown in the project opens `https://www.amazon.in/`, scrolls the page using JavaScript, takes a screenshot, refreshes the page, and selects a dropdown value (e.g., "Baby").
+* Web element interactions
+* Browser actions
+* Locators (ID, XPath, CSS, LinkText, etc.)
+* Keyboard and mouse events (Actions class)
+* Alert handling
+* Dropdown selection
+* Frames and window switching
+* JavaScript Executor
+* Waits (Implicit, Explicit)
+* Screenshot capturing
+* Page navigation
 
----
-
-## Features
-
-- Launch Chrome using WebDriverManager
-- Navigate to Amazon
-- Scroll page using JavaScriptExecutor
-- Capture screenshots with `TakesScreenshot`
-- Interact with dropdowns using `Select`
-- Example test/main classes for launching and basic interaction
-
----
-
-## Prerequisites
-
-- Java JDK 8 or later (project shows JavaSE-1.8 but newer JDKs should work)
-- Maven (if running from command line)
-- Internet connection (for WebDriverManager to download driver, and to load test site)
-- Chrome browser installed (ensure Chrome version is supported by the driver)
-
-Dependencies used (examples; see `pom.xml`):
-- Selenium Java
-- WebDriverManager
-- Apache Commons IO (for file copy utilities)
+Each script focuses on one or more Selenium concepts and is well structured for readability.
 
 ---
 
-## Installation & Setup
+## 📁 **Project Structure**
 
-1. Clone this repository:
-   - git clone <your-repo-url>
-
-2. Open the project in Eclipse:
-   - File → Import → Existing Maven Projects (or Import → General → Existing Projects into Workspace if not using Maven).
-
-3. Ensure Maven dependencies are downloaded:
-   - Right-click the project → Maven → Update Project (or run `mvn clean install`).
-
-4. If you prefer not to use WebDriverManager, download the correct chromedriver executable for your Chrome version and add it to your PATH (or set `webdriver.chrome.driver` system property).
-
----
-
-## Running the code
-
-### Run from Eclipse
-- Locate the Java class (for example `seleniumJAVA.AmazonLaunch`) in `src/test/java` or `src`.
-- Right click → Run As → Java Application (or JUnit test, if converted into tests).
-- Console output will show the progress (page scroll, screenshot saved, dropdown actions, etc.).
-
-### Run from Command Line (Maven)
-If you have tests configured as JUnit/TestNG, run:
-- mvn test
-
-If the classes are plain Java mains, you can run via `mvn exec:java` with proper configuration in `pom.xml` or package and run the jar:
-- mvn package
-- java -cp target/<artifact>.jar <main-class>
+```
+Selenium-Programs/
+│
+├── src/test/java/
+│   ├── selenium_Interview_Practice/
+│   │   └── All_In_One_Selenium.java        # Covers full end‑to‑end automation flow
+│   │
+│   └── seleniumJAVA/                       # Individual concept‑based practice programs
+│       ├── ActionCommands.java
+│       ├── Alert_Handling_commands.java
+│       ├── DropDownCommands.java
+│       ├── JSExecutorCommands.java
+│       ├── SwitchTo_iframe.java
+│       └── SwitchTo_Window.java
+│
+├── pom.xml                                  # Maven project configuration
+└── README.md
+```
 
 ---
 
-## Project Structure (example)
+## 🚀 **Key Highlights**
 
-- src/test/java/seleniumJAVA/
-  - AmazonLaunch.java        // Main example - opens Amazon, scrolls, screenshot, dropdown
-  - eZTestTestMamata.java    // Another example/test
-  - FlipkartLaunch.java      // Example for Flipkart (if present)
-  - Practice.java            // Practice scripts
-- pom.xml                    // Maven dependencies and build settings
-- target/                    // Maven build output
+✔ Covers **almost all Selenium commands** for interview preparation
+✔ Includes complete **end‑to‑end automation scripts**
+✔ Uses **WebDriverManager** (no manual driver setup)
+✔ Clear and simple code structure
+✔ Great as a reference for **SDET interviews**, automation practice, and portfolio
 
 ---
 
-## Important Notes & Troubleshooting
+## 🔧 **Technologies Used**
 
-- WebDriverManager is used (WebDriverManager.chromedriver().setup()) so you generally don't need to manually download chromedriver. It will attempt to download a driver matching your browser.
-- If you see SLF4J warnings like "No SLF4J providers were found" — that is a logging provider warning. Add an SLF4J binding (e.g., slf4j-simple or logback) if you want to remove the warning.
-- If you see warnings about CDP (Chrome DevTools Protocol) version or "Unable to find version of CDP to use", make sure your Chrome is up to date or use a chromedriver version compatible with your Chrome browser. Updating WebDriverManager or your local Chrome may resolve the mismatch.
-- Screenshot path: the code saves screenshots to a local path (example: `C:\Users\...`). Make sure the folder exists or update the path to a project-relative folder (e.g., `./screenshots/`) and ensure write permission.
-- Use of Thread.sleep() is shown in examples; prefer explicit waits (WebDriverWait) for reliable tests.
-- When running in CI, ensure a display or use headless mode for Chrome (add ChromeOptions with `--headless`).
-
----
-
-## Suggested Next Steps
-
-- Refactor into a proper test framework (JUnit or TestNG) with setup/teardown methods.
-- Move repeated logic to a base class or use Page Object Model (POM) for maintainability.
-- Add configuration support (externalize base URL, browser type, timeouts).
-- Add assertions / validations to convert examples into verifiable tests.
-- Add CI (GitHub Actions) to run tests automatically.
-- Store screenshots in a dedicated folder and attach them to test reports.
+* **Java 8+**
+* **Selenium WebDriver**
+* **WebDriverManager** (Bonigarcia)
+* **Maven**
+* **Eclipse IDE**
 
 ---
 
-## License
+## ⚙️ **How to Run the Project**
 
-This project does not include a license file. Add a LICENSE file if you plan to make this repository public and reusable.
+### **1. Clone the Repository**
+
+```
+git clone https://github.com/mamata-salunkhe/Selenium-Programs.git
+```
+
+### **2. Open in Eclipse / IntelliJ**
+
+* Import as **Maven Project**
+* Wait for Maven dependencies to download
+
+### **3. Run Scripts**
+
+* Navigate to `src/test/java`
+* Open any `.java` file
+* Right-click → **Run As → Java Application**
+
+---
+
+## 📚 **Topics Covered in Detail**
+
+### 🖱️ **1. Browser & Element Commands**
+
+* click(), sendKeys(), getText(), getAttribute()
+* isDisplayed(), isEnabled(), isSelected()
+
+### ⚠️ **2. Alert Handling**
+
+* accept(), dismiss(), getText()
+
+### 🔻 **3. Dropdowns (Select Class)**
+
+* selectByVisibleText()
+* selectByValue()
+* selectByIndex()
+
+### 🪟 **4. Windows & Tabs Switching**
+
+* getWindowHandles()
+* switchTo().window()
+
+### 🧩 **5. Frames / iFrames**
+
+* switchTo().frame()
+* parentFrame()
+* defaultContent()
+
+### ⌛ **6. Waits**
+
+* Implicit wait
+* Explicit wait (WebDriverWait)
+
+### 🎯 **7. Actions Class**
+
+* Mouse hover
+* Drag & drop
+* Keyboard events
+
+### ✨ **8. JavaScript Executor**
+
+* scroll
+* click
+* highlight elements
+
+### 📸 **9. Screenshot Capture**
+
+* getScreenshotAs()
+
+---
+
+## 🧪 **Sample Script: All-In-One Automation Practice**
+
+The file `All_In_One_Selenium.java` demonstrates:
+
+* Launching browser
+* Navigating to URL
+* Performing actions
+* Handling alerts
+* Working with frames
+* Handling multiple windows
+* Screenshots
+* Element interactions
+
+A perfect **end-to-end scenario** for interview preparation.
+
+---
+
+## 🤝 **Contributions**
+
+Suggestions, improvements, and contributions are always welcome!
+Feel free to fork or create a pull request.
+
+---
+
+## 📩 **Contact / Follow**
+
+🔹 GitHub: [https://github.com/mamata-salunkhe](https://github.com/mamata-salunkhe)
+
+If you find this repository helpful, please ⭐ star it and help others discover it.
+
+---
+
+### 🙌 Happy Learning & Automating with Selenium!
